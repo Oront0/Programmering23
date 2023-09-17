@@ -1,6 +1,16 @@
 import random
+import goblin
+import environments
 
-# Function determaining if the player finds item when looking around
+# TODO Initial idea is to plan out a house that the player may move around in.
+# TODO Each door (upstairs?) will lead to a different kind of game that the player has to beat.
+# TODO Perhaps the player acquires a key for each mini game they beat which they need to escape the house?
+# TODO Would prefer each game to be contained within its own file.
+
+goblin.goblin()
+
+
+# Function determining if the player finds item when looking around
 def item():
     newRandom = random.randint(0, 1)
     if newRandom == 0:
@@ -9,18 +19,7 @@ def item():
         return print("You found something real cool.")
 
 
-# Define an environment
-# House
-entranceHouse = "in the hallway to a big mansion. It's dingy and smells of mold."
-stairsUpHouse = "at the foot of stairs going upward. There are pictures along the wall and only darkness at the top"
-stairsDownHouse = "at the precipice of stairs descending downward. The bottom of them are shrouded in darkness."
-livingRoomHouse = "in a quiet living room. The faint flicker of dying embers try their best at illuminating the space, to no avail."
-libraryRoomHouse = "in an old library. The walls around covered in bookshelves and the bookshelves contain heavy tomes of leather or smelly parchment."
-kitchenRoomHouse = "in an awful kitchen. You're assaulted by a smell not of this world. The sink is full of dirty dishes and old food. Is there something cooking in the oven?"
-basementRoomHouse = "at the foot of the stairs in a basement with no light. You can't see anything."
-
 # List of rooms and directions
-rooms = [stairsUpHouse, stairsDownHouse, livingRoomHouse, libraryRoomHouse, kitchenRoomHouse, basementRoomHouse]
 doors = ["North", "South", "East", "West"]
 
 
@@ -29,7 +28,7 @@ print("Hello, and welcome to AdventureGame")
 print("***********************************")
 print()
 
-print("You're standing " + entranceHouse)
+print("You're standing " + environments.entranceHouse)
 input("Press any key to continue...")
 print("----------------------------")
 print()
@@ -38,9 +37,9 @@ print()
 run = True
 while run:
 
-    # Print environments and picks a random predefined room for the player to spawn in
+    # Print environments.py and picks a random predefined room for the player to spawn in
     print()
-    print("You're standing", random.choice([stairsUpHouse, stairsDownHouse, livingRoomHouse, libraryRoomHouse, kitchenRoomHouse, basementRoomHouse]))
+    print("You're standing", random.choice(environments.rooms))
     print()
     input("Press any key to continue...")
     print("----------------------------")
